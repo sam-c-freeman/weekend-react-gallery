@@ -1,0 +1,4 @@
+- gallery page
+- like button
+
+3 componet
