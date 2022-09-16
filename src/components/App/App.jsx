@@ -31,10 +31,11 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
+        <div className='galleryBody'>
         <GalleryList
         galleryList={galleryList}
         getGalleryList={getGalleryList} />
-        {/* <img src="images/goat_small.jpg"/> */}
+        </div> 
       </div>
     );
 }

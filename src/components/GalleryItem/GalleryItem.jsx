@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import axios from 'axios';
 
+
+
 function GalleryItem ({galleryItem, getGalleryList}){
     console.log(galleryItem);
     const updateLikeCount = () =>{
