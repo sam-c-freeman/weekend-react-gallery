@@ -32,19 +32,6 @@ pool.query(sqlQuery, sqlValues)
 
 
 
-//original PUT Route below
-
-// router.put('/like/:id', (req, res) => {
-//     console.log(req.params);
-//     const galleryId = req.params.id;
-//     for(const galleryItem of galleryItems) {
-//         if(galleryItem.id == galleryId) {
-//             galleryItem.likes += 1;
-//         }
-//     }
-//     res.sendStatus(200);
-// }); // END PUT Route
-
 // GET Route
 router.get('/', (req, res) => {
     let queryText = `
@@ -60,5 +47,28 @@ pool.query(queryText)
         console.log('error in get route from DB', error);
     })
 }); // END GET Route
+
+router.post('/', (req, res)=> {
+    // console.log(req.body)
+    let path = req.body.path;
+    let description = req.body.description;
+   
+    const sqlQuery = `
+        INSERT INTO "react_gallery" (path, description)
+            VALUES ($1, $2)
+        `
+
+    const sqlValues = [path, description];
+    pool.query(sqlQuery,sqlValues)
+        .then((response)=> {
+            console.log('image has been posted')
+            res.sendStatus(200);
+        })
+        .catch((error)=> {
+            res.sendStatus(500);
+            console.log('error in POST /items', error);
+        })
+})
+
 
 module.exports = router;

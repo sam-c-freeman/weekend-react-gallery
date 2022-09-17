@@ -1,6 +1,71 @@
-function GalleryForm (){
+import { useState } from 'react';
+import Input from '@mui/material/Input';
+import { TextField } from '@mui/material';
+import { Button } from '@mui/material';
+import { Spacing } from '@mui/system';
+import Box from '@mui/material/Box';
+import axios from 'axios';
+
+
+function GalleryForm ({getGalleryList}){
+    const [imageURL, setImageURL] = useState('');
+    const [description, setDescription] = useState('');
+
+    // console.log(imageURL);
+    // console.log(description);
+    
+ const addImage = () => {
+    event.preventDefault();
+    axios({
+        method: 'POST',
+        url: '/gallery',
+        data: {
+            path: imageURL,
+            description: description
+        }
+    })
+    .then((response) => {
+        getGalleryList();
+        clearImageFields();
+       
+    })
+    .catch ((error) => {
+        console.log('error in addImage function', error);
+    })
+  }
+
+    const clearImageFields = () =>{
+        setImageURL('');
+        setDescription('');
+    }
+
+    
     return(
-        <input></input>
+        <form className='form'>
+            <Box sx={{mr: 1}}>
+                <TextField 
+                label="Enter the Image URL" 
+                variant ="outlined"
+                value={imageURL}
+                onChange={(event) => setImageURL(event.target.value)} >
+                    <Input 
+                    type="text"
+                    className='input' 
+                    ></Input>
+                </TextField>
+            </Box>
+            <Box sx={{mr: 1}}>
+                <TextField 
+                type="text"
+                label="Description" 
+                variant ="outlined"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}>
+                    <Input ></Input>
+                </TextField>
+            </Box>
+                <Button className='button' variant="contained" onClick={addImage}>Add Image</Button>
+        </form>
     )
 }
 

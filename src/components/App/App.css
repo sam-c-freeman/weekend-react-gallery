@@ -6,8 +6,17 @@
 .App-header {
   background-color: #222;
   padding: 1em;
+  /* font-size: 1.25rem; */
   color: white;
   margin-bottom: 1em;
+  width: 100%;
+  /* position: fixed;
+  z-index: 2;
+   */
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
 }
 
 .App-title {
@@ -19,6 +28,12 @@ img{
   width: 300px;
 }
 
+.form{
+ display: flex;
+ align-items: flex-end;
+ justify-content: center;
+ margin-bottom: 20px;
+}
 
  .imageArea{
   display: flex;
