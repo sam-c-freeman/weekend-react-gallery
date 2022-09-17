@@ -3,20 +3,21 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
+// import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+// import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
 
 
-
-
 function GalleryItem ({galleryItem, getGalleryList}){
+    // let [likeCount, setLikeCount] = useState(galleryItem.likes);
+    
     console.log(galleryItem);
-    const updateLikeCount = () =>{
+    const updateLikeCount = (galleryItem) =>{
        axios({
         method: 'PUT',
         url: `/gallery/like/${galleryItem.id}`,
+        data: galleryItem
        })
        .then((response) => {
         getGalleryList();
@@ -26,6 +27,7 @@ function GalleryItem ({galleryItem, getGalleryList}){
        })
     }
 
+ 
 
     const[backIsVisible, setBackIsVisible] = useState(true);
     const showBackOfImage = () =>{
@@ -41,23 +43,14 @@ function GalleryItem ({galleryItem, getGalleryList}){
     
         </div>
        
-       
-        {/* <div onClick={showBackOfImage}>
-         {backIsVisible ? <img src={galleryItem.path}/> : <p>{galleryItem.description}</p>}   
-    
-        </div> */}
         <div className='reactSection'>
-            {/* <Button className='button'variant="outlined" size="small" onClick={updateLikeCount}>Like</Button> */}
-            <p><IconButton onClick={updateLikeCount}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p>
+            <p><IconButton onClick={ () => {updateLikeCount(galleryItem)}}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p>
+            {/* <p><IconButton onClick={likeCounter}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p> */}
         </div>
         </section>
    
    )
-   
+
 }
 export default GalleryItem;
 
-{/* <div className='reactSection'>
-            <button onClick={updateLikeCount}>Like Me!</button>
-            <p>This many likes: {likeCount}</p>
-        </div> */}
