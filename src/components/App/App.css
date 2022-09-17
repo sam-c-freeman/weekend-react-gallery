@@ -19,6 +19,10 @@ img{
   width: 300px;
 }
 
+.button{
+  margin-left: 10px;
+}
+
 
  .imageArea{
   display: flex;
