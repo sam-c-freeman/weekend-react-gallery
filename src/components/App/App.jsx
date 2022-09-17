@@ -26,6 +26,8 @@ function App() {
       console.log('error in getGalleryList route', error);
     })
  }
+
+
   
   return (
       <div className="App">
@@ -33,7 +35,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <div>
-        <GalleryForm />
+        <GalleryForm getGalleryList={getGalleryList} />
         <GalleryList
         galleryList={galleryList}
         getGalleryList={getGalleryList} />
