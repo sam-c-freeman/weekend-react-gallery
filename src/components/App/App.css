@@ -39,12 +39,23 @@ img{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 5px;
+  
 }
 
-/* .reactSection{
-  display: block;
-}  */
+.likeArea{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-left: 25px;
+} 
+
+.trash{
+  align-self: center;
+  
+  padding-right: 25px;
+}
+
+
 
 .galleryItem{
   display: block;

@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 // import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Box from '@mui/material/Box';
 
 
 function GalleryItem ({galleryItem, getGalleryList}){
@@ -44,7 +46,21 @@ function GalleryItem ({galleryItem, getGalleryList}){
         </div>
        
         <div className='reactSection'>
-            <p><IconButton onClick={ () => {updateLikeCount(galleryItem)}}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p>
+            <p>
+                <section className='likeArea'>
+                    <Box>
+                    <IconButton sx={{mr: 0}} onClick={ () => {updateLikeCount(galleryItem)}}>
+                        <FavoriteBorderIcon>
+                        </FavoriteBorderIcon>
+                    </IconButton> {galleryItem.likes}
+                    </Box>
+                
+               
+                        <DeleteIcon sx={{mr: 0}} className="trash">
+                        </DeleteIcon>
+                </section>
+               
+        </p>
             {/* <p><IconButton onClick={likeCounter}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p> */}
         </div>
         </section>
