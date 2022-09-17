@@ -1,5 +1,13 @@
 import {useState} from 'react';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import IconButton from '@mui/material/IconButton';
+
 
 
 
@@ -26,9 +34,10 @@ function GalleryItem ({galleryItem, getGalleryList}){
    
 //probably will be bad to have it as a div like that
     return(
-    <>
+    
+    <section className='flexItem'>
         <div onClick={showBackOfImage}>
-         {backIsVisible ? <img src={galleryItem.path}/> : <p>{galleryItem.description}</p>}   
+         {backIsVisible ? <Tooltip placement='bottom' title="Click the image for more info"><img src={galleryItem.path}/></Tooltip> : <p className='flippedCard'>{galleryItem.description}</p>}   
     
         </div>
        
@@ -38,10 +47,11 @@ function GalleryItem ({galleryItem, getGalleryList}){
     
         </div> */}
         <div className='reactSection'>
-            <button onClick={updateLikeCount}>Like Me!</button>
-            <p>This many likes: {galleryItem.likes}</p>
+            {/* <Button className='button'variant="outlined" size="small" onClick={updateLikeCount}>Like</Button> */}
+            <p><IconButton onClick={updateLikeCount}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p>
         </div>
-    </>
+        </section>
+   
    )
    
 }
