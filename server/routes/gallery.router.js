@@ -36,7 +36,7 @@ pool.query(sqlQuery, sqlValues)
 router.get('/', (req, res) => {
     let queryText = `
     SELECT * FROM "react_gallery"
-    ORDER BY "id"
+    ORDER BY "id" DESC
     `;
 
 pool.query(queryText)
@@ -69,6 +69,28 @@ router.post('/', (req, res)=> {
             console.log('error in POST /items', error);
         })
 })
+
+router.delete('/delete/:id', (req, res)=> {
+    // console.log(req.params.id)
+    let idToDelete = req.params.id;
+   
+    const sqlQuery = `
+        DELETE FROM "react_gallery" 
+            WHERE "id" = $1
+        `
+
+    const sqlValues = [idToDelete];
+    pool.query(sqlQuery,sqlValues)
+        .then((response)=> {
+            console.log('image has been deleted')
+            res.sendStatus(200);
+        })
+        .catch((error)=> {
+            res.sendStatus(500);
+            console.log('error in Delete /items', error);
+        })
+})
+
 
 
 module.exports = router;
