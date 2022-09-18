@@ -70,8 +70,14 @@ function GalleryItem ({galleryItem, getGalleryList}){
     
     <section className='flexItem'>
         <div onClick={showBackOfImage}>
-         {backIsVisible ? <Tooltip placement='bottom' title="Click the image for more info"><img src={galleryItem.path}/></Tooltip> : <p className='flippedCard'>{galleryItem.description}</p>}   
-    
+         {backIsVisible ? 
+            <Tooltip placement='bottom' title="Click the image for more info">
+                <img src={galleryItem.path}/>
+            </Tooltip> : 
+            <Tooltip placement='bottom' title="Click the text to see image again">
+                <p className='flippedCard'>{galleryItem.description}
+                </p>   
+            </Tooltip>}
         </div>
        
         <div className='reactSection'>
