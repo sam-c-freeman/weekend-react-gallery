@@ -47,11 +47,12 @@ img{
   align-items: flex-end;
   justify-content: space-between;
   padding-left: 25px;
+  margin-top: auto;
 } 
 
 .trash{
   align-self: center;
-  
+  padding-bottom: 17px;
   padding-right: 25px;
 }
 
@@ -73,5 +74,5 @@ img{
 
 
 .flippedCard{
-  margin-bottom: 150px;
+  margin-bottom: 248px;
 }

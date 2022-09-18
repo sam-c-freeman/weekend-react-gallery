@@ -14,7 +14,7 @@ import Box from '@mui/material/Box';
 function GalleryItem ({galleryItem, getGalleryList}){
     // let [likeCount, setLikeCount] = useState(galleryItem.likes);
     
-    console.log(galleryItem);
+    // console.log(galleryItem);
     const updateLikeCount = (galleryItem) =>{
        axios({
         method: 'PUT',
@@ -28,12 +28,24 @@ function GalleryItem ({galleryItem, getGalleryList}){
         console.log('Error in put route to update count', error);
        })
     }
-
- 
-
+    
     const[backIsVisible, setBackIsVisible] = useState(true);
     const showBackOfImage = () =>{
         setBackIsVisible(!backIsVisible);
+    }
+
+    const deleteImage = () =>{
+        axios({
+            method: 'DELETE',
+            url: `gallery/delete/${galleryItem.id}`
+        })
+        .then((response) => {
+            getGalleryList();
+        })
+        .catch ((error) => {
+            console.log('Error in delete Route', error);
+        })
+
     }
    
 //probably will be bad to have it as a div like that
@@ -46,24 +58,28 @@ function GalleryItem ({galleryItem, getGalleryList}){
         </div>
        
         <div className='reactSection'>
-            <p>
-                <section className='likeArea'>
-                    <Box>
-                    <IconButton sx={{mr: 0}} onClick={ () => {updateLikeCount(galleryItem)}}>
-                        <FavoriteBorderIcon>
-                        </FavoriteBorderIcon>
-                    </IconButton> {galleryItem.likes}
-                    </Box>
+            <section className='likeArea'>
+                <Box>
+                    <p>
+                        <IconButton sx={{mr: 0}} 
+                            onClick={ () => {updateLikeCount(galleryItem)}}>
+                                <FavoriteBorderIcon>
+                                </FavoriteBorderIcon>
+                        </IconButton> {galleryItem.likes}
+                    </p>
+                 </Box>
                 
-               
-                        <DeleteIcon sx={{mr: 0}} className="trash">
-                        </DeleteIcon>
+                       <IconButton onClick={ () => {deleteImage(galleryItem)}}>
+                            <DeleteIcon sx={{mr: 0}} 
+                            className="trash">
+                            </DeleteIcon>
+                        </IconButton>
                 </section>
                
-        </p>
-            {/* <p><IconButton onClick={likeCounter}><FavoriteBorderIcon></FavoriteBorderIcon></IconButton> {galleryItem.likes}</p> */}
+        
+            
         </div>
-        </section>
+    </section>
    
    )
 
