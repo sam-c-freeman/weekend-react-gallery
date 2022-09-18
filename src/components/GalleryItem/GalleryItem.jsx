@@ -3,12 +3,12 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-// import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-// import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Box from '@mui/material/Box';
+import swal from '@sweetalert/with-react'
+
 
 
 function GalleryItem ({galleryItem, getGalleryList}){
@@ -35,18 +35,35 @@ function GalleryItem ({galleryItem, getGalleryList}){
     }
 
     const deleteImage = () =>{
-        axios({
-            method: 'DELETE',
-            url: `gallery/delete/${galleryItem.id}`
-        })
-        .then((response) => {
-            getGalleryList();
-        })
-        .catch ((error) => {
-            console.log('Error in delete Route', error);
-        })
-
-    }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this image!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios ({
+                    method: 'DELETE',
+                    url: `gallery/delete/${galleryItem.id}`
+                })
+                .then((response) => {
+                    getGalleryList();
+                })
+                .catch((error) =>{
+                    console.log('error deleting image', error);
+                })
+                
+              swal("Your image has been deleted", {
+                icon: "success",
+              });
+            } else {
+              swal("That image is safe!");
+            }
+          });
+        }
+    
    
 //probably will be bad to have it as a div like that
     return(

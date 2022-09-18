@@ -64,8 +64,6 @@ For each `feature` of your application, make a branch, work on the branch, and t
 ### Features
 
 
-- Ability to delete a gallery item
-
 - Use [multer](https://github.com/expressjs/multer) for image upload 
 
 > NOTE: The above stretch goals are intended to be completed in order.
