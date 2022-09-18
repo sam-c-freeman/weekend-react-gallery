@@ -10,6 +10,7 @@ function App() {
 
   useEffect(() => {
       getGalleryList();
+      
   }, [])
 
   
@@ -31,14 +32,14 @@ function App() {
   
   return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
-        </header>
+          <header className="App-header">
+            <h1 className="App-title">Gallery of My Life</h1>
+          </header>
         <div>
-        <GalleryForm getGalleryList={getGalleryList} />
-        <GalleryList
-        galleryList={galleryList}
-        getGalleryList={getGalleryList} />
+          <GalleryForm getGalleryList={getGalleryList} />
+          <GalleryList
+          galleryList={galleryList}
+          getGalleryList={getGalleryList} />
         
         </div> 
       </div>
