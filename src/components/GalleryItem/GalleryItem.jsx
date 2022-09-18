@@ -12,9 +12,8 @@ import swal from '@sweetalert/with-react'
 
 
 function GalleryItem ({galleryItem, getGalleryList}){
-    // let [likeCount, setLikeCount] = useState(galleryItem.likes);
     
-    // console.log(galleryItem);
+    //Put Route to update like count
     const updateLikeCount = (galleryItem) =>{
        axios({
         method: 'PUT',
@@ -27,13 +26,15 @@ function GalleryItem ({galleryItem, getGalleryList}){
        .catch((error) => {
         console.log('Error in put route to update count', error);
        })
-    }
+    } //end Put Route
     
+    //This function toggles between front and back of image card
     const[backIsVisible, setBackIsVisible] = useState(true);
     const showBackOfImage = () =>{
         setBackIsVisible(!backIsVisible);
     }
 
+    //This is my delete route for an image
     const deleteImage = () =>{
         swal({
             title: "Are you sure?",
@@ -62,12 +63,13 @@ function GalleryItem ({galleryItem, getGalleryList}){
               swal("That image is safe!");
             }
           });
-        }
+        }//end delete Route
     
    
-//probably will be bad to have it as a div like that
     return(
     
+        //I added tooltips to help a user know where to click
+        //I used icons instead of traditional text/buttons
     <section className='flexItem'>
         <div onClick={showBackOfImage}>
          {backIsVisible ? 
@@ -98,9 +100,6 @@ function GalleryItem ({galleryItem, getGalleryList}){
                             </DeleteIcon>
                         </IconButton>
                 </section>
-               
-        
-            
         </div>
     </section>
    

@@ -6,6 +6,9 @@ import * as React from 'react';
 import GalleryItem  from '../GalleryItem/GalleryItem.jsx';
 
 
+
+//this function creates the new gallery items that are displayed in this 
+//component
 function GalleryList ({galleryList, getGalleryList}){
     console.log(galleryList);
     
@@ -24,36 +27,7 @@ function GalleryList ({galleryList, getGalleryList}){
 
   }
   
-   
 
-
-    // return(
-    //     <div className='imageArea'>
-    //   {galleryList.map(galleryItem => {
-    //     return(
-    //         <GalleryItem key={galleryItem.id}
-    //         galleryItem={galleryItem}
-    //         getGalleryList={getGalleryList}/>
-    //     )
-    //   })}
-    //     </div>
-    // );
-// }  //This may have been needed before?
 
 export default GalleryList;
 
-
-// function GalleryList ({galleryList}){
-//     console.log(galleryList);
-   
-//     return(
-//         <ul>
-//         {galleryList.map(galleryItem => {
-//             return(
-//             <li>{galleryItem.description}</li>
-//             )
-//         })}
-//         </ul>
-//     );
-    
-// }

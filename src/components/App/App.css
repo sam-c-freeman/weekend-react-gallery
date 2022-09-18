@@ -35,12 +35,17 @@ img{
 
 }
 
+/* Using flex box and flex wrap made my app instantly responsive 
+to size changes */
  .imageArea{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   
 }
+
+/* I could not figure out how to get the two icons to be in line
+so I spread them apart usign space-between so was less obvious */
 
 .likeArea{
   display: flex;
@@ -51,7 +56,7 @@ img{
 } 
 
 .trash{
-  align-self: center;
+  /* align-self: center; */
   padding-bottom: 17px;
   padding-right: 25px;
 }
@@ -72,7 +77,9 @@ img{
 
 
 
-
+/* I struggled to get the reaction area to stay in place
+this solution is passable but I would like to 
+find a better solution */
 .flippedCard{
   margin-bottom: 248px;
 }
