@@ -38,9 +38,9 @@ img{
 /* Using flex box and flex wrap made my app instantly responsive 
 to size changes */
  .imageArea{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* display: inline-block; */
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
   
 }
 
@@ -69,6 +69,7 @@ so I spread them apart usign space-between so was less obvious */
 }
 
 .flexItem{
+  display: inline-block;
   max-width: 300px;
   min-width: 300px;
   margin: 5px;
