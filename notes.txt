@@ -2,3 +2,5 @@
 - like button
 
 3 componet
+
+changed name of image
