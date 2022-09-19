@@ -22,17 +22,7 @@ if (process.env.DATABASE_URL) {
   
 
 // Setup PG to connect to the database
-const Pool = new pg.Pool(config);
-
-
-
-const pool = new Pool({
-    database: process.env.DATABASE_NAME || 'react_gallery', // database name 
-    host: 'localhost', // where to find the database
-    port: 5432,        // port for finding the database
-    max: 10,           // max number of connections for the pool
-    idleTimeoutMillis: 30000 // 30 seconds before timeout/cancel query
-});
+const pool = new pg.Pool(config);
 
 // Listener setup on the pool isn't required, 
 // but can be super handy for troubleshooting.
