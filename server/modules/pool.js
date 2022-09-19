@@ -22,7 +22,7 @@ if (process.env.DATABASE_URL) {
   
 
 // Setup PG to connect to the database
-const Pool = pg.Pool(config);
+const Pool = new pg.Pool(config);
 
 
 
