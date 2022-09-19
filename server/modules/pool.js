@@ -44,6 +44,6 @@ pool.on('error', (error) => {
     console.log('Error with database pool', error);
 });
 
-var pool = require('../modules/pool.js');
+// var pool = require('../modules/pool.js');
 
 module.exports = pool;
