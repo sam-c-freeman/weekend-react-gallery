@@ -9,6 +9,8 @@ I created a photo gallery app using React.  The app can add and delete photos.  
 
 To see my repository, please visit: [GitHub Repository](https://github.com/sam-c-freeman/weekend-react-gallery)
 
+To see my app, please visit: [Heroku Hosted App](https://sleepy-coast-58101.herokuapp.com/)
+
 ## Screen Shots
 
 <img src="appPhotos/AppHome.png"/>
